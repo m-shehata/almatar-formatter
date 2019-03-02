@@ -1,0 +1,19 @@
+{
+    "name": "m-shehata/almatar-formatter",
+    "authors": [
+        {
+            "name": "Mohamed Shehata",
+            "email": "m.shehata.alex@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.1.0",
+        "tightenco/collect": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "AlmatarFormatter\\": "src/"
+        }
+    }
+}
