@@ -105,6 +105,12 @@ class IteneraryEntity extends AbstractTranslatedEntity
      * @var string
      */
     public $PerPersonTotalFareCurrency;
+    
+    /**
+     *
+     * @var string
+     */
+    public $IteneraryLastTicketDate;
 
     /**
      * @var bool
