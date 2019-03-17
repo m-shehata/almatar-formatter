@@ -209,13 +209,13 @@ class SegmentEntity extends AbstractTranslatedEntity
     /**
      * Sets the value for SegmentDepartureDateTime.
      *
-     * @param string $value
+     * @param string|array $value
      *
      * @return self
      */
-    public function setSegmentDepartureDateTime(string $value): self
+    public function setSegmentDepartureDateTime($value): self
     {
-        $this->SegmentDepartureDateTime = $value;
+        $this->SegmentDepartureDateTime = $this->getDateString($value);
 
         return $this;
     }
@@ -233,13 +233,13 @@ class SegmentEntity extends AbstractTranslatedEntity
     /**
      * Sets the value for SegmentArrivalDateTime.
      *
-     * @param string $value
+     * @param string|array $value
      *
      * @return self
      */
-    public function setSegmentArrivalDateTime(string $value): self
+    public function setSegmentArrivalDateTime($value): self
     {
-        $this->SegmentArrivalDateTime = $value;
+        $this->SegmentArrivalDateTime = $this->getDateString($value);;
 
         return $this;
     }

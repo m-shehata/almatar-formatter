@@ -105,12 +105,6 @@ class IteneraryEntity extends AbstractTranslatedEntity
      * @var string
      */
     public $PerPersonTotalFareCurrency;
-    
-    /**
-     *
-     * @var string
-     */
-    public $IteneraryLastTicketDate;
 
     /**
      * @var bool
@@ -155,8 +149,6 @@ class IteneraryEntity extends AbstractTranslatedEntity
      */
     protected function __init($data, $locale)
     {
-        parent::__init($data, $locale);
-
         $this->setFinished($data['Finished'] ?? false);
         if (isset($data['TotalFareAmountAfterAllCustDiscounts']) || isset($data['IteneraryTotalFareAmount'])) {
             $this->setTotalFareAmountAfterAllCustDiscounts($data['TotalFareAmountAfterAllCustDiscounts'] ?? $data['IteneraryTotalFareAmount']);
@@ -212,6 +204,7 @@ class IteneraryEntity extends AbstractTranslatedEntity
         if (isset($adultPassengerType['PxTypeNonRefundableIndicator'])) {
             $this->setIteneraryNonRefundableIndicator($adultPassengerType['PxTypeNonRefundableIndicator']);
         }
+        parent::__init($data, $locale);
     }
 
     /**

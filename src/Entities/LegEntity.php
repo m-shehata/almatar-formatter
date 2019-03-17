@@ -175,7 +175,7 @@ class LegEntity extends AbstractTranslatedEntity
         }
 
         $this->setLegElapsedTimeIncludingLayoverDurationInMinutes($data['LegElapsedTimeIncludingLayoverDuration']);
-        $this->setLegDepartureDateTime($firstSegment['SegmentDepartureDateTime']);
+        $this->setLegDepartureDateTime($this->getDateString($firstSegment['SegmentDepartureDateTime']));
         $this->setLegDepartureAirportCode($firstSegment['SegmentDepartureAirportCode']);
         $this->setLegDepartureAirportName($firstSegment[$locale.'SegmentDepartureAirportName']);
         $this->setLegDepartureCountryName($firstSegment[$locale.'SegmentDepartureCountryName']);
@@ -183,7 +183,7 @@ class LegEntity extends AbstractTranslatedEntity
             $this->setLegDepartureCountryCode($firstSegment['SegmentDepartureCountryCode']);
         }
         $this->setLegDepartureCityName($firstSegment[$locale.'SegmentDepartureCityName']);
-        $this->setLegArrivalDateTime($lastSegment['SegmentArrivalDateTime']);
+        $this->setLegArrivalDateTime($this->getDateString($lastSegment['SegmentArrivalDateTime']));
         $this->setLegArrivalAirportCode($lastSegment['SegmentArrivalAirportCode']);
         $this->setLegArrivalAirportName($lastSegment[$locale.'SegmentArrivalAirportName']);
         $this->setLegArrivalCountryName($lastSegment[$locale.'SegmentArrivalCountryName']);

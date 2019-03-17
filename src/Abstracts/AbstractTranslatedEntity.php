@@ -25,7 +25,9 @@ abstract class AbstractTranslatedEntity
                 unset($this->$translatedField);
                 continue;
             }
-            $this->{'set'.$field}($data[$translatedField], $locale);
+            if (method_exists($this, $method = 'set'.$field)) {
+                $this->$method($data[$translatedField], $locale);
+            }
         }
 
         return $prefix;
@@ -35,4 +37,20 @@ abstract class AbstractTranslatedEntity
      * @return array The Fields that will be translated for this entity
      */
     abstract protected function getTranslatedFields(): array;
+
+    /**
+     * @param string|array $date
+     */
+    protected function getDateString($date): string
+    {
+        if (is_string($date)) {
+            return $date;
+        }
+        if (is_array($date)) {
+            return (new \DateTime())
+                    ->setTimestamp($date['sec'] ?? 0)
+                    ->setTimezone(new \DateTimeZone('UTC'))
+                    ->format('Y-m-d\TH:i:s');
+        }
+    }
 }
