@@ -176,13 +176,18 @@ class IteneraryEntity extends AbstractTranslatedEntity
             }
         }
 
-        if (!isset($data['PassengerTypes'])) {
-            return;
-        }
         $adultPassengerType = collect($data['PassengerTypes'])
             ->where('PassengerType', '=', PassengerTypesEnum::ADULT)
             ->first();
 
+        if (isset($adultPassengerType['FareInfo'])) {
+            $data['PassengerTypes'] = collect($data['PassengerTypes'])
+                ->map(function ($passengerType) {
+                    return array_merge($passengerType, $passengerType['FareInfo']);
+                })
+                ->all();
+        }
+        
         if (isset($adultPassengerType['PxTypeEquivFareAmount'])) {
             $this->setPerPersonEquivFareAmount($adultPassengerType['PxTypeEquivFareAmount']);
         }
@@ -204,6 +209,7 @@ class IteneraryEntity extends AbstractTranslatedEntity
         if (isset($adultPassengerType['PxTypeNonRefundableIndicator'])) {
             $this->setIteneraryNonRefundableIndicator($adultPassengerType['PxTypeNonRefundableIndicator']);
         }
+
         parent::__init($data, $locale);
     }
 
