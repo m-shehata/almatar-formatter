@@ -37,6 +37,10 @@ abstract class AbstractTranslatedEntity
      * @return array The Fields that will be translated for this entity
      */
     abstract protected function getTranslatedFields(): array;
+    /**
+     * @return array The Fields that will be filled without data mapping
+     */
+    abstract public function getFillableFieldsWithSameReceivedName(): array;
 
     /**
      * @param string|array $date
