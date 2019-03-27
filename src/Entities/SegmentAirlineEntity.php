@@ -238,7 +238,7 @@ class SegmentAirlineEntity extends AbstractTranslatedEntity
      *
      * @return array
      */
-    public function getFillableFieldsWithSameReceivedName()
+    public function getFillableFieldsWithSameReceivedName(): array
     {
         return array_diff(array_keys(get_object_vars($this)), $this->getCalculatedFields());
     }
