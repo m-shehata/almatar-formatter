@@ -69,6 +69,19 @@ class IteneraryPassengerTypeEntity extends AbstractTranslatedEntity
         $this->__init($data, $locale);
         $this->removeNull();
     }
+    
+    public function __init($data, $locale)
+    {
+        parent::__init($data, $locale);
+        if (isset($data['FareInfo'])) {
+            foreach ($data['FareInfo'] as $key => $value) {
+                if (method_exists($this, $method='set'.$key)) {
+                    $this->$method($value);
+                }
+            }
+            
+        }
+    }
 
     /**
      * Retrieves the value of PassengerType.

@@ -168,7 +168,7 @@ class IteneraryEntity extends AbstractTranslatedEntity
 
         $lastTicketDate = $data['IteneraryLastTicketDate'];
 
-        if ('N/A' != $lastTicketDate) {
+        if ('true'== getenv('PAY_LATER_ENABLED') && 'N/A' != $lastTicketDate) {
             $lastTicketDate = new \DateTime($lastTicketDate, new \DateTimeZone('GMT'));
             if ($lastTicketDate > (new \DateTime('today', new \DateTimeZone('GMT')))) {
                 $this->setbookNowPayLaterCancellationTime($lastTicketDate->getTimestamp());
