@@ -303,7 +303,7 @@ class IteneraryEntity extends AbstractTranslatedEntity
      */
     public function setIteneraryEquivFareAmount(float $value): self
     {
-        $this->IteneraryEquivFareAmount = ceil($value);
+        $this->IteneraryEquivFareAmount = $value;
 
         return $this;
     }
@@ -351,7 +351,7 @@ class IteneraryEntity extends AbstractTranslatedEntity
      */
     public function setIteneraryTotalTaxesAmount(float $value): self
     {
-        $this->IteneraryTotalTaxesAmount = ceil($value);
+        $this->IteneraryTotalTaxesAmount = $value;
 
         return $this;
     }
@@ -399,7 +399,7 @@ class IteneraryEntity extends AbstractTranslatedEntity
      */
     public function setIteneraryTotalFareAmount(float $value): self
     {
-        $this->IteneraryTotalFareAmount = ceil($value);
+        $this->IteneraryTotalFareAmount = $value;
 
         return $this;
     }
@@ -524,7 +524,7 @@ class IteneraryEntity extends AbstractTranslatedEntity
      */
     public function setPerPersonEquivFareAmount(float $value): self
     {
-        $this->PerPersonEquivFareAmount = ceil($value);
+        $this->PerPersonEquivFareAmount = $value;
 
         return $this;
     }
@@ -572,7 +572,7 @@ class IteneraryEntity extends AbstractTranslatedEntity
      */
     public function setPerPersonTotalTaxAmount(float $value): self
     {
-        $this->PerPersonTotalTaxAmount = ceil($value);
+        $this->PerPersonTotalTaxAmount = $value;
 
         return $this;
     }
@@ -620,7 +620,7 @@ class IteneraryEntity extends AbstractTranslatedEntity
      */
     public function setPerPersonTotalFareAmount(float $value): self
     {
-        $this->PerPersonTotalFareAmount = ceil($value);
+        $this->PerPersonTotalFareAmount = $value;
 
         return $this;
     }
